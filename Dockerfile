@@ -1,12 +1,14 @@
-FROM hub.c.163.com/nce2/nodejs:0.12.2
+FROM daocloud.io/node:5
+MAINTAINER nathan_qiu@jabil.com
 
-# Create app directory
-RUN mkdir -p /dock/test
-WORKDIR /dock/test
+ENV HTTP_PORT 8081
 
-# Bundle app source
-COPY . /dock/test
-RUN npm install
+RUN mkdir -p /qiun
+COPY . /qiun
+WORKDIR /qiun
+
+RUN npm  install
 
 EXPOSE 8081
-CMD [ "npm", "start" ]
+
+CMD ["npm", "start"]
