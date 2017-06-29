@@ -7,7 +7,7 @@
     "name": "qiun"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   }
 
 }
