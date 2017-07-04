@@ -6,6 +6,8 @@ WORKDIR /home/Service
 
 # Bundle app source
 COPY . /home/Service
+
+RUN npm install nodemon -g
 RUN npm install
 
 EXPOSE 8888
