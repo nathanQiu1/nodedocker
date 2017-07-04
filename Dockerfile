@@ -1,14 +1,12 @@
-FROM daocloud.io/node:5
-MAINTAINER nathan_qiu@jabil.com
+FROM hub.c.163.com/nce2/nodejs:0.12.2
 
-ENV HTTP_PORT 8090
+# Create app directory
+RUN mkdir -p /home/Service
+WORKDIR /home/Service
 
-RUN mkdir -p /qiun/test/
-COPY . /qiun/test
-WORKDIR /qiun/test
+# Bundle app source
+COPY . /home/Service
+RUN npm install
 
-RUN npm  install
-
-EXPOSE 8090
-
-CMD ["npm", "start"]
+EXPOSE 8888
+CMD [ "npm", "start" ]
